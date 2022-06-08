@@ -2,7 +2,7 @@
 
 input_natural_number = int(input("What is your number?: "))
 # because of int is immutable I need to create list as storage of imputed number
-number = [input_natural_number]
+number_as_string = str(input_natural_number)
 # Find the product of the digits of this number
 print('Find the product of the digits of this number')
 
@@ -15,8 +15,8 @@ print('digits of this number is: ' + str(num))
 
 # Write number in the reverse order
 print('Write number in the reverse order')
-print('reverse order is: '+ str(number[0])[::-1])
+print('reverse order is: '+ number_as_string[::-1])
 
 # Sort number
 print("Sorted number is: ")
-print(sorted(list(str(number[0]))))
+print(sorted(number_as_string))

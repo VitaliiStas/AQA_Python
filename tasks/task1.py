@@ -19,7 +19,7 @@ testString = """Beautiful is better than ugly.
 
 # Find the number occurrences(better,never,this) in the test string
 occurrences = ['better', 'never', 'this']
-print('Print all uppercase: ')
+print('Print all occurrences ')
 for i in occurrences:
     print(i + ' occurred: ' + str(testString.count(i)))
 # Print all uppercase
