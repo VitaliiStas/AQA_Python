@@ -2,7 +2,7 @@
 
 sufix_for_check = "@eleks.com"
 email_for_check = "tes#tEmail@eleks.com"
-list = ["#", "!", "%", "*"]
+list_unsupported_char = ["#", "!", "%", "*"]
 
 
 def type_email():
@@ -11,7 +11,7 @@ def type_email():
 
 
 def email_char_check(string):
-    for el in list:
+    for el in list_unsupported_char:
         if string.count(el) > 0:
             print("Email format incorrect.Inappropriate char is present: " + "'" + el + "'")
             break

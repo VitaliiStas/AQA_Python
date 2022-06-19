@@ -5,7 +5,6 @@ words_list = []
 
 
 def type_word(text):
-    # Taking an input year from user
     return input(text)
 
 
