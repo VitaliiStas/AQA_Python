@@ -51,6 +51,8 @@ class BasePage:
         except NoSuchElementException:
             return False
     # fix assert
+
+    
     def check_if_login_failed(self):
         assert self.is_element_present(locators.invalid_email_password_messsage), "'login failed' message is missing"
 
