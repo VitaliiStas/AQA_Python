@@ -2,6 +2,8 @@ import time
 
 from selenium.common import NoSuchElementException
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support import expected_conditions
+from selenium.webdriver.support.wait import WebDriverWait
 
 from po.locators import locators
 
@@ -24,7 +26,11 @@ class BasePage:
         return self
 
     def get_element_by_xpath(self, xpath):
-        return self.driver.find_element(By.XPATH, xpath)
+        return WebDriverWait(self.driver, 4).until(expected_conditions.presence_of_element_located((By.XPATH, xpath)))
+
+    def get_elements_by_xpath(self, xpath):
+        return WebDriverWait(self.driver, 4).until(
+            expected_conditions.visibility_of_all_elements_located((By.XPATH, xpath)))
 
     def click_on_element(self, element):
         self.get_element_by_xpath(element).click()
@@ -38,21 +44,23 @@ class BasePage:
         self.click_on_element(locators.login_button)
         return self
 
-    def fill_confirm_login_form(self):
-        self.type_data(locators.email_field, "bogus@email.com")
-        self.type_data(locators.password_field, "bogus_password")
+    def fill_confirm_login_form(self, email, password):
+        self.type_data(locators.email_field, email)
+        self.type_data(locators.password_field, password)
         self.click_on_element(locators.login_confirm_button)
         return self
 
-    def is_element_present(self, element):
+    def is_text_present(self, element):
         try:
-            self.get_element_by_xpath(element)
-            return True
+            return self.get_element_by_xpath(element).text
         except NoSuchElementException:
             return False
+
     # fix assert
 
+    def check_if_login_successful(self):
+        assert self.is_text_present(locators.your_basket_button) == "Your Basket", "login failed"
 
     def check_if_login_failed(self):
-        assert self.is_element_present(locators.invalid_email_password_messsage), "'login failed' message is missing"
-
+        assert self.is_text_present(locators.invalid_email_password_message, ) == "Invalid email or password.", \
+            "'login failed' message is missing"
