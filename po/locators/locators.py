@@ -13,8 +13,17 @@ delete_item_buttons = "//button[@class='mat-focus-indicator mat-icon-button mat-
 basket_button = "//*[@routerlink='/basket']"
 
 #Side Navigation
+customer_feedback_button = "//*[text()=' Customer Feedback ']//.."
 side_navigation_button = "//*[@aria-label='Open Sidenav']"
 about_us_button = "//span[contains(text(), 'About Us')]"
 
 # About US
 twiter_button = "//*[@class='mat-focus-indicator mat-raised-button mat-button-base mat-accent']"
+
+# Customer Feedback
+comment_field_form = "//*[@aria-label='Field for entering the comment or the feedback']"
+slider = "//*[@class='mat-slider-thumb-label']"
+captcha = "//*[@aria-label='CAPTCHA code which must be solved']"
+captcha_result_form = "//*[@aria-label='Field for the result of the CAPTCHA code']"
+submit = "//*[@type='submit']"
+thank_you_for_your_feedback ="//*[text()='Thank you for your feedback.']"
