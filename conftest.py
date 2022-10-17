@@ -3,6 +3,7 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 
 from helpers.web_drivers import get_driver
 from po.base_po import BasePage
+from po.customer_feedback import FeedbackPage
 from po.home_page_bo import HomePage
 from po.side_navigation_page_bo import SideNavigationPage
 
@@ -32,3 +33,7 @@ def navigation_menu(home_page) -> SideNavigationPage:
 
     yield SideNavigationPage(home_page.driver)
 
+@pytest.fixture()
+def feedback(home_page) -> FeedbackPage:
+
+    yield FeedbackPage(home_page.driver)

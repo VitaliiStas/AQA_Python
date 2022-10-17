@@ -57,10 +57,10 @@ class HomePage(BasePage):
 
         self.delete_items_from_basket()
 
-    # def go_to_navigation_page(self):
-    #     # self.open_page('http://localhost:3000/#/about')
-    #
-    #     # webdriver.ActionChains(self.driver) \
-    #     #     .move_to_element(locators.side_navigation_button).click(locators.side_navigation_button).perform()
-    #     self.click_on_element(locators.side_navigation_button)
-    #     self.click_on_element("//span[contains(text(), 'About Us')]")
+    def click_navigation_button(self):
+        el = locators.side_navigation_button
+        self.click_on_element(el)
+
+        assert self.is_text_present("//*[text()='Contact']") == "Contact", \
+            "Navigation page doesn't opened !!!!!!!!!"
+        return self
