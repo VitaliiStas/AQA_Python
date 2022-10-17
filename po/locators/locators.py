@@ -5,12 +5,17 @@ email_field = "//input[@name='email']"
 password_field = "//input[@name='password']"
 login_confirm_button = "//button[@id='loginButton']"
 invalid_email_password_message = "//*[contains(text(), 'Invalid email or password')]"
+
 # Home Page
 your_basket_button = "//*[contains(text(), ' Your Basket')]"
 items_on_page = "//button[@aria-label='Add to Basket']"
+# only_one_item_element = "//*[text()='Only 1 left']/../../div/button"
+only_one_item_element = "/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[4]/div/mat-card/div[3]/button"
+
 # Basket Page
 delete_item_buttons = "//button[@class='mat-focus-indicator mat-icon-button mat-button-base']"
 basket_button = "//*[@routerlink='/basket']"
+element_for_check = "//*[text()=' Best Juice Shop Salesman Artwork ']"
 
 #Side Navigation
 customer_feedback_button = "//*[text()=' Customer Feedback ']//.."

@@ -1,3 +1,5 @@
+import time
+
 from selenium import webdriver
 from selenium.common import StaleElementReferenceException
 
@@ -27,6 +29,7 @@ class HomePage(BasePage):
 
     def go_to_basket(self):
         self.click_on_element(locators.basket_button)
+        return self
 
     def press_delete(self, el):
         webdriver.ActionChains(self.driver) \
@@ -64,3 +67,21 @@ class HomePage(BasePage):
         assert self.is_text_present("//*[text()='Contact']") == "Contact", \
             "Navigation page doesn't opened !!!!!!!!!"
         return self
+
+    def _click_on_last_item(self):
+        # for x in range(4):
+        for x in range(8):
+            self.driver.execute_script("arguments[0].click();", self.get_element_by_xpath(locators.only_one_item_element))
+        return self
+
+    # Buying last items and checking if items are marked as sold-out
+    def buy_last_item_and_check_sold_out(self):
+        self._click_on_last_item().go_to_basket()
+
+
+        assert self.get_element_by_xpath(locators.element_for_check).text ==\
+               "Best Juice Shop Salesman Artwork", \
+            "Error with adding last item !!!!!!!!!"
+        self.delete_items_from_basket()
+        return self
+
