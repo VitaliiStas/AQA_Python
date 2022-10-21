@@ -2,3 +2,7 @@
 venv
 .idea/
 .pytest_cache/
+allure/
+logs.log
+*.jpg
+__pycache__/
