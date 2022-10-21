@@ -9,8 +9,8 @@ invalid_email_password_message = "//*[contains(text(), 'Invalid email or passwor
 # Home Page
 your_basket_button = "//*[contains(text(), ' Your Basket')]"
 items_on_page = "//button[@aria-label='Add to Basket']"
-# only_one_item_element = "//*[text()='Only 1 left']/../../div/button"
-only_one_item_element = "/html/body/app-root/div/mat-sidenav-container/mat-sidenav-content/app-search-result/div/div/div[2]/mat-grid-list/div/mat-grid-tile[4]/div/mat-card/div[3]/button"
+only_one_item_element = "//*[text()='Only 1 left']/../../div/button"
+go_to_user_profile = "//button[@aria-label='Go to user profile']"
 
 # Basket Page
 delete_item_buttons = "//button[@class='mat-focus-indicator mat-icon-button mat-button-base']"
@@ -32,3 +32,11 @@ captcha = "//*[@aria-label='CAPTCHA code which must be solved']"
 captcha_result_form = "//*[@aria-label='Field for the result of the CAPTCHA code']"
 submit = "//*[@type='submit']"
 thank_you_for_your_feedback ="//*[text()='Thank you for your feedback.']"
+
+# User Profile
+user_name_input = "//input[@id='username']"
+set_username_button = "//*[@aria-label='Button to save/set the username']"
+# text_field_for_the_image_link = "//input[@id='url']"
+# submit_url_button = "//*[@id='submitUrl']"
+input_for_selecting_the_profile_picture = "//input[@id='picture']"
+button_to_upload_the_profile_picture = "//*[text()='Upload Picture']"
