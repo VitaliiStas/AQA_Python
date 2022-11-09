@@ -1,6 +1,4 @@
 import logging
-import time
-
 import allure
 
 from po.home_page_bo import HomePage

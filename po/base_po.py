@@ -77,3 +77,7 @@ class BasePage:
     @allure.step("Check if login failed")
     def check_if_login_failed(self):
         return self._get_text_from_element(locators.invalid_email_password_message, ) == "Invalid email or password."
+
+    def cursed_click(self,element):
+        # Use it if you don't have any choose
+        self.driver.execute_script("arguments[0].click();", element)

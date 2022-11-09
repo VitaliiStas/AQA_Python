@@ -1,5 +1,4 @@
 import logging
-import time
 
 import allure
 from selenium import webdriver
@@ -36,8 +35,6 @@ class HomePage(BasePage):
         return self
 
     def press_delete(self, el):
-        # webdriver.ActionChains(self.driver) \
-        #     .move_to_element(el).click(el).perform()
         self.driver.execute_script("arguments[0].click();", el)
         return self
 

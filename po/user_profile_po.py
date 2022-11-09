@@ -1,9 +1,5 @@
 import logging
-import os
-import time
-
-import pyautogui as pyautogui
-
+import allure
 from po.home_page_bo import HomePage
 from po.locators import locators
 
@@ -24,12 +20,16 @@ class UserProfilePage(HomePage):
         return self
 
     def fill_confirm(self,input_for_text,button_for_click,text):
+        # need to clean form before typing a new data
+        self.get_element_by_xpath(input_for_text).clear()
         self.type_data(input_for_text, text)
         self.click_on_element(button_for_click)
 
+    @allure.step("Type user name")
     def _set_username(self,username="Random Text"):
         self.fill_confirm(locators.user_name_input,locators.set_username_button,username)
 
+    @allure.step("upload img")
     def upload_img(self,path_to_img):
         self.get_element_by_xpath(locators.input_for_selecting_the_profile_picture).send_keys(path_to_img)
         self.click_on_element(locators.button_to_upload_the_profile_picture)
@@ -43,4 +43,3 @@ class UserProfilePage(HomePage):
         self._click_user_profile_button()
         self._set_username()
         self.upload_img("C:/Users/vitalii.stasiv/Desktop/AQA_mentorship/AQA_Python/img.jpg")
-        time.sleep(5)

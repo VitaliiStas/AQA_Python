@@ -6,3 +6,4 @@ allure/
 logs.log
 *.jpg
 __pycache__/
+failures
